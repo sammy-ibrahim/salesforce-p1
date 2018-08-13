@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "accountJSONSchemaDraft6"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce__Basic_AuthenticationWithProperties",
+            "typeId": "Account"
+        }
+    },
+    "id": "3e8c6150-5ba1-4901-b7aa-f45acaa77cea",
+    "version": "5.2.0.0"
+}

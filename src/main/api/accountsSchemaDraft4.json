@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "AccountNumber": {
+      "type": "string"
+    },
+    "AccountType": {
+      "type": "string"
+    },
+    "AnnualRevenue": {
+      "type": "string"
+    },
+    "Industry": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "AccountNumber",
+    "AccountType",
+    "AnnualRevenue",
+    "Industry",
+    "Name"
+  ]
+}

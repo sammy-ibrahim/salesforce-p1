@@ -1,0 +1,157 @@
+#%RAML 1.0
+baseUri: https://mocksvc.mulesoft.com/mocks/26216783-d9ba-404f-9892-5bff5e4da95c # 
+title: salesforce-account API
+description: RESTful API for Salesforce accounts
+version: 6
+mediaType: application/json
+
+documentation:
+  - !include documentation/salesForceDoc.raml
+
+types:
+  Account: !include datatypes/account.raml
+  CustomErrorMessage: !include datatypes/customErrorMessage.raml
+
+protocols: HTTPS
+securitySchemes:
+  basic:
+    description: This API suports Basic Authentication
+    type: Basic Authentication
+    
+/accounts:
+  get:
+    description: Retrieve a collection of accounts from Salesforce
+    displayName: Query account information by account type and/or account ID 
+    headers:
+      Accept?:
+        description: Specify the media type of the response to be returned
+    queryParameters:
+      AccountNumber:
+        description: | 
+          Retrieves an account with a unique identifier
+        required: false
+        type: string
+        pattern: '(^[1-9]\d*$)'
+        example: '6789365'
+      Type:
+        description: Retrieve an account of a certain type
+        required: false
+        type: string
+        pattern: '([A-Z][a-z]+[-][A-Z][a-z]+$)|([A-Z]{1}[a-z]+$)|([A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]$)|([A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+\/[A-Z]{1}[a-z]+)|(^$)'
+        enum: [Customer - Channel, Customer - Direct,  Channel Partner / Reseller, Installation Partner, Other, Prospect, Technology Partner]
+    responses:
+      200:
+        headers:
+          Cache-Control:
+            description: | 
+              Activates caching and defines cache behaviour through cache response                                   directives. Usually defines public or private (cacheable by proxy or not) and max-age                  for resources. See                                                                                     https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html for more information.
+          Expires:
+            type: datetime
+            description: |
+              Sets date in RC 1123 format from which the cached resource                                             should no loger be considered valid. If both the Expires header and max-age in the                     Cache-Control header are set, max-age will prevail.
+            example: Tue, 17 Jul 2017 09:30:41 GMT
+            format: rfc2616
+        body:
+          type: Account
+          example: !include examples/accountExample.raml
+      404:
+        body:
+          type: CustomErrorMessage
+      406:
+        body:
+          type: CustomErrorMessage
+  post:
+    description: Register a new account
+    displayName: Create an account
+    body:
+      application/json:
+        type: Account
+        example: !include examples/accountExample.raml
+    responses:
+      201:
+        headers:
+          Location:
+            description: URI pointing to the location of the newly created account resource
+            example: /accounts/8f19cb0-3f57-4d38
+        body:
+          application/json:
+            type: Account
+            example: !include examples/accountExample.raml
+      503:
+        body:
+          type: CustomErrorMessage
+  /{accountID}:
+    get:
+      description: Get account information for a specific account ID
+      displayName: Get an account with a specific account ID
+      headers:
+        Accept?:
+          description: Specify the media type of the response to be returned
+      responses:
+        200:
+          headers:
+            Cache-Control:
+              description:
+                Activates caching and defines cache behaviour through cache response directives.
+                Usually defines public or private (cacheable by proxy or not) and max-age for resources.
+                See https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html for more information.
+            Expires:
+              type: datetime
+              description:
+                Sets date in RC 1123 format from which the cached resource should no loger be considered valid.
+                If both the Expires header and max-age in the Cache-Control header are set, max-age will prevail.
+              example: Tue, 17 Jul 2017 09:30:41 GMT
+              format: rfc2616
+          body:
+            type: Account
+            example: !include examples/accountExample.raml
+        404:
+          body:
+            type: CustomErrorMessage
+
+        406:
+          body:
+            type: CustomErrorMessage
+    put:
+      description: Adds a new account resource by ID if none exists, otherwise it is replaced/updated
+      displayName: Add/Replace a new account
+      body:
+        application/json:
+          type: Account
+          example: !include examples/accountExample.raml
+      responses:
+        201:
+          headers:
+            Location:
+              description: URI pointing to the location of the newly created account resource
+              example: /accounts/8f19cb0-3f57-4d38
+          body:
+        204:
+        501:
+          body:
+            type: CustomErrorMessage
+    delete:
+      description: Deletes an account with a specific account ID
+      displayName: Delete an account
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: Delete request successful
+        204:
+        404:
+          body:
+            type: CustomErrorMessage
+    patch:
+      description: Updates specific account resource information by account ID
+      displayName: Update specific customer info
+      body:
+        application/json:
+          type: Account
+          example: !include examples/accountExample.raml
+      responses:
+        204:
+        501:
+          body:
+            type: CustomErrorMessage

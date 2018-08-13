@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "accountJSONSchemaDraft6"
+        }
+    },
+    "id": "83bc6c7f-b263-4c65-9435-afa91b476966",
+    "version": "5.2.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "properties": {
+    "AccountNumber": {
+      "type": "string",
+      "examples": [
+        "2342"
+      ]
+    },    
+    "AccountSource": {
+      "type": "string",
+      "examples": [
+        "Internet"
+      ]
+    },
+    "AnnualRevenue": {
+      "type": "string",
+      "examples": [
+        "23423499"
+      ]
+    },
+    "Industry": {
+      "type": "string",
+      "examples": [
+        "Entertainment"
+      ]},
+    "Type": {
+      "type": "string",
+      "examples": [
+        "Customer-Direct"
+      ]
+    },
+     "Id": {
+      "type": "string",
+      "examples": [
+        "001f200001YCtNOAA1"
+      ]
+    }
+    ,
+     "Name": {
+      "type": "string",
+      "examples": [
+        "Peter Parker"
+      ]
+    }
+  }
+}

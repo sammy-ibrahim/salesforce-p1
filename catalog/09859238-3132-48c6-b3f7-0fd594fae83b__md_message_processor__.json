@@ -1,0 +1,25 @@
+{
+    "inputMessageMetadata": {
+        "outboundProperties": {
+            "Content-Type": {
+                "connectorName": "Salesforce__Basic_Authentication",
+                "typeId": "Account"
+            }
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "model": {
+                "connectorName": "Salesforce__Basic_AuthenticationWithProperties",
+                "typeId": "Account"
+            },
+            "isArray": false,
+            "dataType": "LIST",
+            "metaDataModelPropertiesManager": {
+                "properties": []
+            }
+        }
+    },
+    "id": "09859238-3132-48c6-b3f7-0fd594fae83b",
+    "version": "5.2.0.0"
+}

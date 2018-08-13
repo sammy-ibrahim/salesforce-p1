@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "a90d71fe-a296-4617-957a-c77fa458fa78",
+		"name": "Part 1 - SalesForce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "5cf11e7d-6a58-4a98-9626-6967b8096b41",
+			"name": "GET All Accounts",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminBIG101",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"Industry\": \"Entertainment\",\n        \"Type\": \"Customer-Direct\",\n        \"AccountSource\": \"Web\",\n        \"Id\": \"001f200001YCtNOAA1\",\n        \"AnnualRevenue\": \"508978766\",\n        \"AccountNumber\": \"CD439877\"\n    }"
+				},
+				"url": {
+					"raw": "https://localhost:8081/accounts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "c6ae77f4-ce7b-49b7-800a-db3274a6da3e",
+			"name": "Update Account By Id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminBIG101",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"Industry\": \"Entertainment\",\n        \"Type\": \"Customer-Direct\",\n        \"AccountSource\": \"Web\",\n        \"Id\": \"\",\n        \"type\": \"Account\",\n        \"AnnualRevenue\": \"508978766\",\n        \"AccountNumber\": \"CD439877\"\n    }"
+				},
+				"url": {
+					"raw": "https://localhost:8081/accounts/001f200001YCtNOAAZ",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"accounts",
+						"001f200001YCtNOAAZ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1c4131f0-16e8-4cac-966f-3964af408c50",
+			"name": "POST Account",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminBIG101",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"AccountNumber\" :\"001f200001YCtNNAA5\",\n\"AccountSource\": \"Web\",\n\"Type\": \"Customer-Direct\",\n\"AnnualRevenue\": \"123456789\",\n\"Industry\": \"Hospitality\",\n\"Name\": \"Peter Parker\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8081/accounts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "27c8c5e5-de5f-40a4-99c3-69357c74cfbc",
+			"name": "Delete Account by Id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminBIG101",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:8081/accounts/001f200001YCtNNAA1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"accounts",
+						"001f200001YCtNNAA1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "adminBIG101",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	}
+}

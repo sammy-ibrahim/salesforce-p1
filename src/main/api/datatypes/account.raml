@@ -1,0 +1,16 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  AccountNumber: 
+    type: string
+    required: false
+  Industry: string
+  Type:
+    enum: [Prospect, Customer-Direct, Customer-Channel, Channel Partner / Reseller, Installation Partner, Technology Partner, Other]
+    pattern: '([A-Z][a-z]+[-][A-Z][a-z]+$)|([A-Z]{1}[a-z]+$)|([A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]$)|([A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+\/[A-Z]{1}[a-z]+)|(^$)'
+  AccountSource?:
+    enum: [Web, Phone Inquiry, Partner Referral, Purchased List, Other]
+    pattern: '([A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+$)|([A-Z]{1}[a-z]+$)'
+  AnnualRevenue:
+    type: string
+    pattern: '(^[1-9]\d*$)'

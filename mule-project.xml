@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mule-project xmlns="http://www.mulesoft.com/tooling/project" schemaVersion="5.3.0.0">
+    <name>Mule salesforce-p1 Application</name>
+    <description>null</description>
+    <muleExtension name="Secure Property Placeholder" qualifier="org.mule.tooling.ui.contribution.secure-property-placeholder.3.9.0"/>
+</mule-project>
